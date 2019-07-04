@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
+
+    public static final int TRAGEDY_BASE_PRICE = 400;
+
     public static void main(String[] args) {
 
         Map<String, String[]> plays = new HashMap<>();
