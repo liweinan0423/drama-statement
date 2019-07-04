@@ -28,7 +28,7 @@ public class Main {
             int thisAmount = 0;
             switch (play[1]) {
                 case "tragedy":
-                    thisAmount = 400;
+                    thisAmount = TRAGEDY_BASE_PRICE;
                     if ((int) performance[1] > 30) {
                         thisAmount += 10 * (((int) performance[1]) - 30);
                     }
