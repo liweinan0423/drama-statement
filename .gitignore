@@ -2,3 +2,7 @@
 target/
 out/
 .gradle/
+.classpath
+.settings/
+bin/
+.project
