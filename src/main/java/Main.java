@@ -4,6 +4,7 @@ import java.util.Map;
 
 class Play {
     private String[] _data = new String[2];
+    private String name;
 
     public String getName() {
         return _data[0];
@@ -11,6 +12,7 @@ class Play {
 
     public void setName(String name) {
         _data[0] = name;
+        this.name = name;
     }
 
     public String getType() {
