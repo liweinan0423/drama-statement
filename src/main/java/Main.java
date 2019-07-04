@@ -4,6 +4,10 @@ import java.util.Map;
 
 class Play {
     public String[] _data = new String[2];
+
+    public String getName() {
+        return _data[0];
+    }
 }
 
 public class Main {
