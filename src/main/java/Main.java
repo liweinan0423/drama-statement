@@ -42,6 +42,11 @@ public class Main {
         plays.put("as-like", new String[]{"As You Like It", "comedy"});
         plays.put("othello", new String[]{"Othello", "tragedy"});
 
+        Map<String, Play> plays2 = new HashMap<>();
+        plays2.put("hamlet", new Play("Hamlet", "tragedy"));
+        plays2.put("as-like", new Play("As You Like It", "comedy"));
+        plays2.put("othello", new Play("Othello", "tragedy"));
+
         String customer = "RigCo";
 
         Object[][] performances = new Object[][]{
