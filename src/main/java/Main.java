@@ -7,7 +7,7 @@ class Play {
     private String name;
 
     public String getName() {
-        return _data[0];
+        return name;
     }
 
     public void setName(String name) {
