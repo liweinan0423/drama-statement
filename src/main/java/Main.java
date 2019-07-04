@@ -55,8 +55,8 @@ public class Main {
             String[] play = plays.get(performance[0]);
 
             Play play1 = new Play();
-            play1._data = play;
             play1.setName(play[0]);
+            play1._data = play;
 
             int thisAmount = 0;
             switch (play1.getType()) {
