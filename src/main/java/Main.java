@@ -13,6 +13,7 @@ public class Main {
     public static final int COMEDY_EXTRA_FACTOR = 3;
     public static final int VOLUME_CREDITS_THRESHOLD = 30;
     public static final int EXTRA_CREDIT_FACTOR = 5;
+    public static final int PERFORMANCE_AUDIENCE_INDEX = 1;
 
     public static void main(String[] args) {
 
@@ -38,16 +39,16 @@ public class Main {
             switch (play[1]) {
                 case "tragedy":
                     thisAmount = TRAGEDY_BASE_PRICE;
-                    if ((int) performance[1] > TRAGEDY_MAX_PEOPLE) {
-                        thisAmount += TRAGEDY_EXTRA_PRICE * (((int) performance[1]) - TRAGEDY_MAX_PEOPLE);
+                    if ((int) performance[PERFORMANCE_AUDIENCE_INDEX] > TRAGEDY_MAX_PEOPLE) {
+                        thisAmount += TRAGEDY_EXTRA_PRICE * (((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - TRAGEDY_MAX_PEOPLE);
                     }
                     break;
                 case "comedy":
                     thisAmount = COMEDY_BASE_PRICE;
                     if (((int) performance[1]) > COMEDY_MAX_PEOPLE) {
-                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (((int) performance[1]) - COMEDY_MAX_PEOPLE);
+                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - COMEDY_MAX_PEOPLE);
                     }
-                    thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance[1]);
+                    thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance[PERFORMANCE_AUDIENCE_INDEX]);
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play[1]);
@@ -56,11 +57,11 @@ public class Main {
             volumeCredits += Math.max(((int) performance[1]) - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play[1]) volumeCredits += Math.floor(((int) performance[1]) / EXTRA_CREDIT_FACTOR);
+            if ("comedy" == play[1]) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
-            result += " " + play[0] + ": $" + thisAmount + " (" + performance[1] + " seats)\n";
+            result += " " + play[0] + ": $" + thisAmount + " (" + performance[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
             totalAmount += thisAmount;
         }
 
