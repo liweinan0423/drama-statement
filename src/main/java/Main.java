@@ -54,7 +54,7 @@ public class Main {
                     throw new RuntimeException("unknown type " + play[1]);
             }
             // add volume credits
-            volumeCredits += Math.max(((int) performance[1]) - VOLUME_CREDITS_THRESHOLD, 0);
+            volumeCredits += Math.max(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
             if ("comedy" == play[1]) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
