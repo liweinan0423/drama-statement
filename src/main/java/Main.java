@@ -8,6 +8,10 @@ class Play {
     public String getName() {
         return _data[0];
     }
+
+    public String getType() {
+        return _data[1];
+    }
 }
 
 public class Main {
