@@ -1,6 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
+
+class Play {
+    public String[] _data = new String[2];
+}
+
 public class Main {
 
     public static final int TRAGEDY_BASE_PRICE = 400;
