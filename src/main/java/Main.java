@@ -37,10 +37,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Map<String, Play> plays2 = new HashMap<>();
-        plays2.put("hamlet", new Play("Hamlet", "tragedy"));
-        plays2.put("as-like", new Play("As You Like It", "comedy"));
-        plays2.put("othello", new Play("Othello", "tragedy"));
+        Map<String, Play> plays = new HashMap<>();
+        plays.put("hamlet", new Play("Hamlet", "tragedy"));
+        plays.put("as-like", new Play("As You Like It", "comedy"));
+        plays.put("othello", new Play("Othello", "tragedy"));
 
         String customer = "RigCo";
 
@@ -55,7 +55,7 @@ public class Main {
         String result = "Statement for " + customer + "\n";
         for (Object[] performance : performances) {
 
-            Play play = plays2.get(performance[0]);
+            Play play = plays.get(performance[0]);
 
             int thisAmount = 0;
             switch (play.getType()) {
