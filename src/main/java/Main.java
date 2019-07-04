@@ -37,11 +37,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Map<String, String[]> plays = new HashMap<>();
-        plays.put("hamlet", new String[]{"Hamlet", "tragedy"});
-        plays.put("as-like", new String[]{"As You Like It", "comedy"});
-        plays.put("othello", new String[]{"Othello", "tragedy"});
-
         Map<String, Play> plays2 = new HashMap<>();
         plays2.put("hamlet", new Play("Hamlet", "tragedy"));
         plays2.put("as-like", new Play("As You Like It", "comedy"));
