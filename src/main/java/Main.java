@@ -3,24 +3,23 @@ import java.util.Map;
 
 
 class Play {
-    private String[] _data = new String[2];
     private String name;
+    private String type;
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        _data[0] = name;
         this.name = name;
     }
 
     public String getType() {
-        return _data[1];
+        return type;
     }
 
     public void setType(String type) {
-        _data[1] = type;
+        this.type = type;
     }
 }
 
