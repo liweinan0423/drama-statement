@@ -6,21 +6,19 @@ class Play {
     private String name;
     private String type;
 
-    public String getName() {
-        return name;
+    public Play(String name, String type) {
+        this.name = name;
+        this.type = type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 }
 
 public class Main {
@@ -59,9 +57,7 @@ public class Main {
 
             String[] play = plays.get(performance[0]);
 
-            Play play1 = new Play();
-            play1.setName(play[0]);
-            play1.setType(play[1]);
+            Play play1 = new Play(play[0], play[1]);
 
             int thisAmount = 0;
             switch (play1.getType()) {
