@@ -39,7 +39,12 @@ public class Main {
         int volumeCredits = 0;
         String result = "Statement for " + customer + "\n";
         for (Object[] performance : performances) {
+
             String[] play = plays.get(performance[0]);
+
+            Play play1 = new Play();
+            play1._data = play;
+
             int thisAmount = 0;
             switch (play[1]) {
                 case "tragedy":
