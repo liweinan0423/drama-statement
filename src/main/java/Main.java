@@ -60,12 +60,10 @@ public class Main {
         String result = "Statement for " + customer + "\n";
         for (Object[] performance : performances) {
 
-            String[] play = plays.get(performance[0]);
-
-            Play play1 = new Play(play[0], play[1]);
+            Play play = plays2.get(performance[0]);
 
             int thisAmount = 0;
-            switch (play1.getType()) {
+            switch (play.getType()) {
                 case "tragedy":
                     thisAmount = TRAGEDY_BASE_PRICE;
                     if ((int) performance[PERFORMANCE_AUDIENCE_INDEX] > TRAGEDY_MAX_PEOPLE) {
@@ -80,17 +78,17 @@ public class Main {
                     thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance[PERFORMANCE_AUDIENCE_INDEX]);
                     break;
                 default:
-                    throw new RuntimeException("unknown type " + play1.getType());
+                    throw new RuntimeException("unknown type " + play.getType());
             }
             // add volume credits
             volumeCredits += Math.max(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play1.getType()) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
+            if ("comedy" == play.getType()) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
-            result += " " + play1.getName() + ": $" + thisAmount + " (" + performance[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
+            result += " " + play.getName() + ": $" + thisAmount + " (" + performance[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
             totalAmount += thisAmount;
         }
 
