@@ -11,6 +11,7 @@ public class Main {
     public static final int COMEDY_EXTRA_BASE = 100;
     public static final int COMEDY_EXTRA_PRICE = 5;
     public static final int COMEDY_EXTRA_FACTOR = 3;
+    public static final int VOLUME_CREDITS_THRESHOLD = 30;
 
     public static void main(String[] args) {
 
@@ -51,7 +52,7 @@ public class Main {
                     throw new RuntimeException("unknown type " + play[1]);
             }
             // add volume credits
-            volumeCredits += Math.max(((int) performance[1]) - 30, 0);
+            volumeCredits += Math.max(((int) performance[1]) - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
             if ("comedy" == play[1]) volumeCredits += Math.floor(((int) performance[1]) / 5);
