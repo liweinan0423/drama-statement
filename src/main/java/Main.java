@@ -9,6 +9,10 @@ class Play {
         return _data[0];
     }
 
+    public void setName(String name) {
+        _data[0] = name;
+    }
+
     public String getType() {
         return _data[1];
     }
@@ -52,6 +56,7 @@ public class Main {
 
             Play play1 = new Play();
             play1._data = play;
+            play1.setName(play[0]);
 
             int thisAmount = 0;
             switch (play1.getType()) {
