@@ -61,7 +61,6 @@ public class Main {
             Play play1 = new Play();
             play1.setName(play[0]);
             play1.setType(play[1]);
-            play1._data = play;
 
             int thisAmount = 0;
             switch (play1.getType()) {
