@@ -8,6 +8,9 @@ public class Main {
     public static final int TRAGEDY_MAX_PEOPLE = 30;
     public static final int TRAGEDY_EXTRA_PRICE = 10;
     public static final int COMEDY_MAX_PEOPLE = 20;
+    public static final int COMEDY_EXTRA_BASE = 100;
+    public static final int COMEDY_EXTRA_PRICE = 5;
+    public static final int COMEDY_EXTRA_FACTOR = 3;
 
     public static void main(String[] args) {
 
@@ -40,9 +43,9 @@ public class Main {
                 case "comedy":
                     thisAmount = COMEDY_BASE_PRICE;
                     if (((int) performance[1]) > COMEDY_MAX_PEOPLE) {
-                        thisAmount += 100 + 5 * (((int) performance[1]) - COMEDY_MAX_PEOPLE);
+                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (((int) performance[1]) - COMEDY_MAX_PEOPLE);
                     }
-                    thisAmount += 3 * ((int) performance[1]);
+                    thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance[1]);
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play[1]);
