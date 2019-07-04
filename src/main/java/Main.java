@@ -4,6 +4,7 @@ import java.util.Map;
 public class Main {
 
     public static final int TRAGEDY_BASE_PRICE = 400;
+    public static final int COMEDY_BASE_PRICE = 300;
 
     public static void main(String[] args) {
 
@@ -34,7 +35,7 @@ public class Main {
                     }
                     break;
                 case "comedy":
-                    thisAmount = 300;
+                    thisAmount = COMEDY_BASE_PRICE;
                     if (((int) performance[1]) > 20) {
                         thisAmount += 100 + 5 * (((int) performance[1]) - 20);
                     }
