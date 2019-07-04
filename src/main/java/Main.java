@@ -71,7 +71,7 @@ public class Main {
 
 
             // print line for this order
-            result += " " + play[0] + ": $" + thisAmount + " (" + performance[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
+            result += " " + play1._data[0] + ": $" + thisAmount + " (" + performance[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
             totalAmount += thisAmount;
         }
 
