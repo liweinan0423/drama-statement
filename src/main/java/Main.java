@@ -54,7 +54,7 @@ public class Main {
             play1._data = play;
 
             int thisAmount = 0;
-            switch (play1._data[1]) {
+            switch (play1.getType()) {
                 case "tragedy":
                     thisAmount = TRAGEDY_BASE_PRICE;
                     if ((int) performance[PERFORMANCE_AUDIENCE_INDEX] > TRAGEDY_MAX_PEOPLE) {
@@ -69,13 +69,13 @@ public class Main {
                     thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance[PERFORMANCE_AUDIENCE_INDEX]);
                     break;
                 default:
-                    throw new RuntimeException("unknown type " + play1._data[1]);
+                    throw new RuntimeException("unknown type " + play1.getType());
             }
             // add volume credits
             volumeCredits += Math.max(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play1._data[1]) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
+            if ("comedy" == play1.getType()) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
