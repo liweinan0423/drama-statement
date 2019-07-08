@@ -15,12 +15,6 @@ class Performance {
         _data[1] = audiences;
     }
 
-    public Performance(Object[] _data) {
-        this._data = _data;
-        this.playId = _data[0].toString();
-        this.audiences = (int) _data[1];
-    }
-
     public String getPlayId() {
         return _data[0].toString();
     }
