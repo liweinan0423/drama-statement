@@ -14,6 +14,7 @@ class Performance {
     public String getPlayId() {
         return playId;
     }
+
     public int getAudiences() {
         return audiences;
     }
@@ -41,13 +42,7 @@ public class Main {
 
         String customer = "RigCo";
 
-        Object[][] performances = new Object[][]{
-                {"hamlet", 55},
-                {"as-like", 35},
-                {"othello", 40}
-        };
-
-        Performance[] performances2 = new Performance[]{
+        Performance[] performances = new Performance[]{
                 new Performance("hamlet", 55),
                 new Performance("as-like", 35),
                 new Performance("othello", 40)
@@ -56,39 +51,37 @@ public class Main {
         int totalAmount = 0;
         int volumeCredits = 0;
         String result = "Statement for " + customer + "\n";
-        for (Object[] performance : performances) {
-
-            Performance performance2 = new Performance(performance[0].toString(), (Integer) performance[1]);
-
-            Play play = plays.get(performance2.getPlayId());
+        for (Performance performance : performances) {
+            Play play = plays.get(performance.getPlayId());
 
             int thisAmount = 0;
             switch (play.getType()) {
                 case "tragedy":
                     thisAmount = TRAGEDY_BASE_PRICE;
-                    if (performance2.getAudiences() > TRAGEDY_MAX_PEOPLE) {
-                        thisAmount += TRAGEDY_EXTRA_PRICE * (performance2.getAudiences() - TRAGEDY_MAX_PEOPLE);
+                    if (performance.getAudiences() > TRAGEDY_MAX_PEOPLE) {
+                        thisAmount += TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - TRAGEDY_MAX_PEOPLE);
                     }
                     break;
                 case "comedy":
                     thisAmount = COMEDY_BASE_PRICE;
-                    if (performance2.getAudiences() > COMEDY_MAX_PEOPLE) {
-                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (performance2.getAudiences() - COMEDY_MAX_PEOPLE);
+                    if (performance.getAudiences() > COMEDY_MAX_PEOPLE) {
+                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (performance.getAudiences() - COMEDY_MAX_PEOPLE);
                     }
-                    thisAmount += COMEDY_EXTRA_FACTOR * performance2.getAudiences();
+                    thisAmount += COMEDY_EXTRA_FACTOR * performance.getAudiences();
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play.getType());
             }
             // add volume credits
-            volumeCredits += Math.max(performance2.getAudiences() - VOLUME_CREDITS_THRESHOLD, 0);
+            volumeCredits += Math.max(performance.getAudiences() - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play.getType()) volumeCredits += Math.floor(performance2.getAudiences() / EXTRA_CREDIT_FACTOR);
+            if ("comedy" == play.getType())
+                volumeCredits += Math.floor(performance.getAudiences() / EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
-            result += " " + play.getName() + ": $" + thisAmount + " (" + performance2.getAudiences() + " seats)\n";
+            result += " " + play.getName() + ": $" + thisAmount + " (" + performance.getAudiences() + " seats)\n";
             totalAmount += thisAmount;
         }
 
