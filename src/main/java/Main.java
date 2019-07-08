@@ -30,7 +30,7 @@ public class Main {
                     thisAmount = getTragedyAmount(performance);
                     break;
                 case "comedy":
-                    thisAmount = getComedyAmount(performance);
+                    thisAmount = performance.getComedyAmount();
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play.getType());
@@ -51,16 +51,6 @@ public class Main {
         result += "Amount owed is $" + totalAmount + "\n";
         result += "You earned " + volumeCredits + " credits\n";
         System.out.println(result);
-    }
-
-    private static int getComedyAmount(Performance performance) {
-        int thisAmount;
-        thisAmount = Play.COMEDY_BASE_PRICE;
-        if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
-            thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
-        }
-        thisAmount += Play.COMEDY_EXTRA_FACTOR * performance.getAudiences();
-        return thisAmount;
     }
 
     private static int getTragedyAmount(Performance performance) {
