@@ -16,10 +16,10 @@ class Performance {
     }
 
     public String getPlayId() {
-        return _data[0].toString();
+        return playId;
     }
     public int getAudiences() {
-        return (int) _data[1];
+        return audiences;
     }
 }
 
