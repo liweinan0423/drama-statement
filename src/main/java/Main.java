@@ -7,6 +7,9 @@ class Performance {
     public String getPlayId() {
         return _data[0].toString();
     }
+    public int getAudiences() {
+        return (int) _data[1];
+    }
 }
 
 public class Main {
