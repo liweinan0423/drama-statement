@@ -27,7 +27,7 @@ public class Main {
             int thisAmount = 0;
             switch (play.getType()) {
                 case "tragedy":
-                    thisAmount = getTragedyAmount(performance);
+                    thisAmount = performance.getTragedyAmount();
                     break;
                 case "comedy":
                     thisAmount = performance.getComedyAmount();
@@ -53,12 +53,4 @@ public class Main {
         System.out.println(result);
     }
 
-    private static int getTragedyAmount(Performance performance) {
-        int thisAmount;
-        thisAmount = Play.TRAGEDY_BASE_PRICE;
-        if (performance.getAudiences() > Performance.TRAGEDY_MAX_PEOPLE) {
-            thisAmount += Play.TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.TRAGEDY_MAX_PEOPLE);
-        }
-        return thisAmount;
-    }
 }

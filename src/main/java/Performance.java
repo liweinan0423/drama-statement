@@ -12,6 +12,15 @@ class Performance {
         this.audiences = audiences;
     }
 
+    public int getTragedyAmount() {
+        int thisAmount;
+        thisAmount = Play.TRAGEDY_BASE_PRICE;
+        if (this.getAudiences() > TRAGEDY_MAX_PEOPLE) {
+            thisAmount += Play.TRAGEDY_EXTRA_PRICE * (this.getAudiences() - TRAGEDY_MAX_PEOPLE);
+        }
+        return thisAmount;
+    }
+
     public String getPlayId() {
         return playId;
     }
