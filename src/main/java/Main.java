@@ -3,7 +3,6 @@ import java.util.Map;
 
 public class Main {
 
-    public static final int VOLUME_CREDITS_THRESHOLD = 30;
     public static final int EXTRA_CREDIT_FACTOR = 5;
 
     public static void main(String[] args) {
@@ -46,7 +45,7 @@ public class Main {
                     throw new RuntimeException("unknown type " + play.getType());
             }
             // add volume credits
-            volumeCredits += Math.max(performance.getAudiences() - VOLUME_CREDITS_THRESHOLD, 0);
+            volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
             if ("comedy" == play.getType())
