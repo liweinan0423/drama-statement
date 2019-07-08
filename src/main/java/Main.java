@@ -2,7 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Performance {
-    public Object[] _data = new Object[2];
+    public Object[] _data;
+
+    public Performance(Object[] _data) {
+        this._data = _data;
+    }
 
     public String getPlayId() {
         return _data[0].toString();
@@ -45,8 +49,7 @@ public class Main {
         String result = "Statement for " + customer + "\n";
         for (Object[] performance : performances) {
 
-            Performance performance2 = new Performance();
-            performance2._data = performance;
+            Performance performance2 = new Performance(performance);
 
             Play play = plays.get(performance2.getPlayId());
 
