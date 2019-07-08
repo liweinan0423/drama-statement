@@ -27,17 +27,10 @@ public class Main {
             int thisAmount = 0;
             switch (play.getType()) {
                 case "tragedy":
-                    thisAmount = Play.TRAGEDY_BASE_PRICE;
-                    if (performance.getAudiences() > Performance.TRAGEDY_MAX_PEOPLE) {
-                        thisAmount += Play.TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.TRAGEDY_MAX_PEOPLE);
-                    }
+                    thisAmount = getTragedyAmount(performance);
                     break;
                 case "comedy":
-                    thisAmount = Play.COMEDY_BASE_PRICE;
-                    if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
-                        thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
-                    }
-                    thisAmount += Play.COMEDY_EXTRA_FACTOR * performance.getAudiences();
+                    thisAmount = getComedyAmount(performance);
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play.getType());
@@ -58,5 +51,24 @@ public class Main {
         result += "Amount owed is $" + totalAmount + "\n";
         result += "You earned " + volumeCredits + " credits\n";
         System.out.println(result);
+    }
+
+    private static int getComedyAmount(Performance performance) {
+        int thisAmount;
+        thisAmount = Play.COMEDY_BASE_PRICE;
+        if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
+            thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
+        }
+        thisAmount += Play.COMEDY_EXTRA_FACTOR * performance.getAudiences();
+        return thisAmount;
+    }
+
+    private static int getTragedyAmount(Performance performance) {
+        int thisAmount;
+        thisAmount = Play.TRAGEDY_BASE_PRICE;
+        if (performance.getAudiences() > Performance.TRAGEDY_MAX_PEOPLE) {
+            thisAmount += Play.TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.TRAGEDY_MAX_PEOPLE);
+        }
+        return thisAmount;
     }
 }
