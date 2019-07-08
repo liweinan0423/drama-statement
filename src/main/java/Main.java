@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Performance {
-    private Object[] _data = new Object[2];
+    private Object[] _data;
 
     private String playId;
     private int audiences;
@@ -10,6 +10,7 @@ class Performance {
     public Performance(String playId, int audiences) {
         this.playId = playId;
         this.audiences = audiences;
+        _data = new Object[2];
         _data[0] = playId;
         _data[1] = audiences;
     }
