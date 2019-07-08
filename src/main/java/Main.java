@@ -1,25 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 
-class Performance {
-
-    private String playId;
-    private int audiences;
-
-    public Performance(String playId, int audiences) {
-        this.playId = playId;
-        this.audiences = audiences;
-    }
-
-    public String getPlayId() {
-        return playId;
-    }
-
-    public int getAudiences() {
-        return audiences;
-    }
-}
-
 public class Main {
 
     public static final int TRAGEDY_BASE_PRICE = 400;
