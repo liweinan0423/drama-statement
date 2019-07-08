@@ -24,7 +24,6 @@ public class Main {
     public static final int COMEDY_EXTRA_FACTOR = 3;
     public static final int VOLUME_CREDITS_THRESHOLD = 30;
     public static final int EXTRA_CREDIT_FACTOR = 5;
-    public static final int PERFORMANCE_AUDIENCE_INDEX = 1;
 
     public static void main(String[] args) {
 
@@ -55,29 +54,29 @@ public class Main {
             switch (play.getType()) {
                 case "tragedy":
                     thisAmount = TRAGEDY_BASE_PRICE;
-                    if ((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX] > TRAGEDY_MAX_PEOPLE) {
-                        thisAmount += TRAGEDY_EXTRA_PRICE * (((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) - TRAGEDY_MAX_PEOPLE);
+                    if (performance2.getAudiences() > TRAGEDY_MAX_PEOPLE) {
+                        thisAmount += TRAGEDY_EXTRA_PRICE * (performance2.getAudiences() - TRAGEDY_MAX_PEOPLE);
                     }
                     break;
                 case "comedy":
                     thisAmount = COMEDY_BASE_PRICE;
-                    if (((int) performance2._data[1]) > COMEDY_MAX_PEOPLE) {
-                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) - COMEDY_MAX_PEOPLE);
+                    if (performance2.getAudiences() > COMEDY_MAX_PEOPLE) {
+                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (performance2.getAudiences() - COMEDY_MAX_PEOPLE);
                     }
-                    thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]);
+                    thisAmount += COMEDY_EXTRA_FACTOR * performance2.getAudiences();
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play.getType());
             }
             // add volume credits
-            volumeCredits += Math.max(((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) - VOLUME_CREDITS_THRESHOLD, 0);
+            volumeCredits += Math.max(performance2.getAudiences() - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play.getType()) volumeCredits += Math.floor(((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
+            if ("comedy" == play.getType()) volumeCredits += Math.floor(performance2.getAudiences() / EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
-            result += " " + play.getName() + ": $" + thisAmount + " (" + performance2._data[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
+            result += " " + play.getName() + ": $" + thisAmount + " (" + performance2.getAudiences() + " seats)\n";
             totalAmount += thisAmount;
         }
 
