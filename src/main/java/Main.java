@@ -38,7 +38,7 @@ public class Main {
             int thisAmount = 0;
             switch (play.getType()) {
                 case "tragedy":
-                    thisAmount = TRAGEDY_BASE_PRICE;
+                    thisAmount = Play.TRAGEDY_BASE_PRICE;
                     if (performance.getAudiences() > TRAGEDY_MAX_PEOPLE) {
                         thisAmount += TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - TRAGEDY_MAX_PEOPLE);
                     }
