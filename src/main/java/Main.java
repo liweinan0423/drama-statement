@@ -3,6 +3,10 @@ import java.util.Map;
 
 class Performance {
     public Object[] _data = new Object[2];
+
+    public String getPlayId() {
+        return _data[0].toString();
+    }
 }
 
 public class Main {
@@ -42,7 +46,7 @@ public class Main {
             Performance performance2 = new Performance();
             performance2._data = performance;
 
-            Play play = plays.get(performance2._data[0]);
+            Play play = plays.get(performance2.getPlayId());
 
             int thisAmount = 0;
             switch (play.getType()) {
