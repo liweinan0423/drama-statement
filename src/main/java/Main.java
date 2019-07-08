@@ -3,8 +3,6 @@ import java.util.Map;
 
 public class Main {
 
-    public static final int TRAGEDY_MAX_PEOPLE = 30;
-    public static final int COMEDY_MAX_PEOPLE = 20;
     public static final int COMEDY_EXTRA_FACTOR = 3;
     public static final int VOLUME_CREDITS_THRESHOLD = 30;
     public static final int EXTRA_CREDIT_FACTOR = 5;
@@ -34,14 +32,14 @@ public class Main {
             switch (play.getType()) {
                 case "tragedy":
                     thisAmount = Play.TRAGEDY_BASE_PRICE;
-                    if (performance.getAudiences() > TRAGEDY_MAX_PEOPLE) {
-                        thisAmount += Play.TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - TRAGEDY_MAX_PEOPLE);
+                    if (performance.getAudiences() > Performance.TRAGEDY_MAX_PEOPLE) {
+                        thisAmount += Play.TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.TRAGEDY_MAX_PEOPLE);
                     }
                     break;
                 case "comedy":
                     thisAmount = Play.COMEDY_BASE_PRICE;
-                    if (performance.getAudiences() > COMEDY_MAX_PEOPLE) {
-                        thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (performance.getAudiences() - COMEDY_MAX_PEOPLE);
+                    if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
+                        thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
                     }
                     thisAmount += COMEDY_EXTRA_FACTOR * performance.getAudiences();
                     break;
