@@ -3,7 +3,6 @@ import java.util.Map;
 
 public class Main {
 
-    public static final int COMEDY_EXTRA_FACTOR = 3;
     public static final int VOLUME_CREDITS_THRESHOLD = 30;
     public static final int EXTRA_CREDIT_FACTOR = 5;
 
@@ -41,7 +40,7 @@ public class Main {
                     if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
                         thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
                     }
-                    thisAmount += COMEDY_EXTRA_FACTOR * performance.getAudiences();
+                    thisAmount += Play.COMEDY_EXTRA_FACTOR * performance.getAudiences();
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play.getType());
