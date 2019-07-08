@@ -62,7 +62,7 @@ public class Main {
         String result = "Statement for " + customer + "\n";
         for (Object[] performance : performances) {
 
-            Performance performance2 = new Performance(performance);
+            Performance performance2 = new Performance(performance[0].toString(), (Integer) performance[1]);
 
             Play play = plays.get(performance2.getPlayId());
 
