@@ -47,6 +47,12 @@ public class Main {
                 {"othello", 40}
         };
 
+        Performance[] performances2 = new Performance[]{
+                new Performance("hamlet", 55),
+                new Performance("as-like", 35),
+                new Performance("othello", 40)
+        };
+
         int totalAmount = 0;
         int volumeCredits = 0;
         String result = "Statement for " + customer + "\n";
