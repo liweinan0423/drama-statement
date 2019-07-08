@@ -4,8 +4,20 @@ import java.util.Map;
 class Performance {
     public Object[] _data;
 
+    private String playId;
+    private int audiences;
+
+    public Performance(String playId, int audiences) {
+        this.playId = playId;
+        this.audiences = audiences;
+        _data[0] = playId;
+        _data[1] = audiences;
+    }
+
     public Performance(Object[] _data) {
         this._data = _data;
+        this.playId = _data[0].toString();
+        this.audiences = (int) _data[1];
     }
 
     public String getPlayId() {
