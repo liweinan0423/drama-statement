@@ -3,8 +3,6 @@ import java.util.Map;
 
 public class Main {
 
-    public static final int EXTRA_CREDIT_FACTOR = 5;
-
     public static void main(String[] args) {
 
         Map<String, Play> plays = new HashMap<>();
@@ -49,7 +47,7 @@ public class Main {
 
             // add extra credit for every 5 comedy attendees;
             if ("comedy" == play.getType())
-                volumeCredits += Math.floor(performance.getAudiences() / EXTRA_CREDIT_FACTOR);
+                volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
