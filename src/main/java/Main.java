@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Performance {
-    public Object[] _data;
+    private Object[] _data = new Object[2];
 
     private String playId;
     private int audiences;
