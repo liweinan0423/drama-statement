@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 
+class Performance {
+    public Object[] _data = new Object[2];
+}
 
 public class Main {
 
@@ -36,35 +39,38 @@ public class Main {
         String result = "Statement for " + customer + "\n";
         for (Object[] performance : performances) {
 
-            Play play = plays.get(performance[0]);
+            Performance performance2 = new Performance();
+            performance2._data = performance;
+
+            Play play = plays.get(performance2._data[0]);
 
             int thisAmount = 0;
             switch (play.getType()) {
                 case "tragedy":
                     thisAmount = TRAGEDY_BASE_PRICE;
-                    if ((int) performance[PERFORMANCE_AUDIENCE_INDEX] > TRAGEDY_MAX_PEOPLE) {
-                        thisAmount += TRAGEDY_EXTRA_PRICE * (((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - TRAGEDY_MAX_PEOPLE);
+                    if ((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX] > TRAGEDY_MAX_PEOPLE) {
+                        thisAmount += TRAGEDY_EXTRA_PRICE * (((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) - TRAGEDY_MAX_PEOPLE);
                     }
                     break;
                 case "comedy":
                     thisAmount = COMEDY_BASE_PRICE;
-                    if (((int) performance[1]) > COMEDY_MAX_PEOPLE) {
-                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - COMEDY_MAX_PEOPLE);
+                    if (((int) performance2._data[1]) > COMEDY_MAX_PEOPLE) {
+                        thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) - COMEDY_MAX_PEOPLE);
                     }
-                    thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance[PERFORMANCE_AUDIENCE_INDEX]);
+                    thisAmount += COMEDY_EXTRA_FACTOR * ((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]);
                     break;
                 default:
                     throw new RuntimeException("unknown type " + play.getType());
             }
             // add volume credits
-            volumeCredits += Math.max(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) - VOLUME_CREDITS_THRESHOLD, 0);
+            volumeCredits += Math.max(((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) - VOLUME_CREDITS_THRESHOLD, 0);
 
             // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play.getType()) volumeCredits += Math.floor(((int) performance[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
+            if ("comedy" == play.getType()) volumeCredits += Math.floor(((int) performance2._data[PERFORMANCE_AUDIENCE_INDEX]) / EXTRA_CREDIT_FACTOR);
 
 
             // print line for this order
-            result += " " + play.getName() + ": $" + thisAmount + " (" + performance[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
+            result += " " + play.getName() + ": $" + thisAmount + " (" + performance2._data[PERFORMANCE_AUDIENCE_INDEX] + " seats)\n";
             totalAmount += thisAmount;
         }
 
