@@ -10,14 +10,12 @@ class App {
 
         Statement statement = new Statement();
         statement.customer = "RigCo";
-        String customer = "RigCo";
 
-        Performance[] performances = new Performance[]{
+        statement.performances = new Performance[]{
                 new Performance("hamlet", 55),
                 new Performance("as-like", 35),
                 new Performance("othello", 40)
         };
-        statement.performances = performances;
 
         int totalAmount = 0;
         int volumeCredits = 0;
