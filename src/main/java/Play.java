@@ -16,10 +16,6 @@ abstract class Play {
     public static final int COMEDY_EXTRA_FACTOR = 3;
     private String name;
 
-    public Play(String name, String type) {
-        this(name);
-    }
-
     public Play(String name) {
         this.name = name;
     }
