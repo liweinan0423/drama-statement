@@ -23,7 +23,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             int thisAmount = 0;
-            thisAmount = getAmount(performance, play);
+            thisAmount = play.getAmount(performance, play);
             // add volume credits
             volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
 
@@ -40,10 +40,6 @@ class App {
         result += "Amount owed is $" + totalAmount + "\n";
         result += "You earned " + volumeCredits + " credits\n";
         System.out.println(result);
-    }
-
-    private int getAmount(Performance performance, Play play) {
-        return play.getAmount(performance, play);
     }
 }
 
