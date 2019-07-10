@@ -29,9 +29,6 @@ abstract class Play {
     public int getAmount(Performance performance) {
         int thisAmount;
         switch (this.getType()) {
-            case "tragedy":
-                thisAmount = performance.getTragedyAmount();
-                break;
             case "comedy":
                 thisAmount = performance.getComedyAmount();
                 break;
