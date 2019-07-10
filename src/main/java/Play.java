@@ -1,4 +1,7 @@
 class Play {
+    static Play create(String name, String type) {
+        return new Play(name, type);
+    }
     public static final int TRAGEDY_BASE_PRICE = 400;
     public static final int COMEDY_BASE_PRICE = 300;
     public static final int TRAGEDY_EXTRA_PRICE = 10;
