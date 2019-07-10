@@ -4,6 +4,11 @@ public class Comedy extends Play {
         return "comedy";
     }
 
+    @Override
+    public int getAmount(Performance performance) {
+        return performance.getComedyAmount();
+    }
+
     public Comedy(String name) {
         super(name);
     }
