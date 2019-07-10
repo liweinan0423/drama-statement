@@ -19,7 +19,6 @@ class App {
 
         int totalAmount = 0;
         int volumeCredits = 0;
-        String result = "Statement for " + statement.customer + "\n";
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append("Statement for " + statement.customer + "\n");
         for (Performance performance : statement.performances) {
@@ -36,14 +35,11 @@ class App {
 
 
             // print line for this order
-            result += " " + play.getName() + ": $" + thisAmount + " (" + performance.getAudiences() + " seats)\n";
             resultBuilder.append(" " + play.getName() + ": $" + thisAmount + " (" + performance.getAudiences() + " seats)\n");
             totalAmount += thisAmount;
         }
 
-        result += "Amount owed is $" + totalAmount + "\n";
         resultBuilder.append("Amount owed is $" + totalAmount + "\n");
-        result += "You earned " + volumeCredits + " credits\n";
         resultBuilder.append("You earned " + volumeCredits + " credits\n");
         return resultBuilder.toString();
     }
