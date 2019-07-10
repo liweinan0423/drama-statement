@@ -26,9 +26,7 @@ abstract class Play {
         return name;
     }
 
-    public int getAmount(Performance performance) {
-        throw new RuntimeException("unknown type " + this.getType());
-    }
+    public abstract int getAmount(Performance performance);
 
     public abstract String getType();
 }
