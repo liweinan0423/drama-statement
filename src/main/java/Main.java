@@ -1,10 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
-
-    public static void main(String[] args) {
-
+class App {
+    public void run() {
         Map<String, Play> plays = new HashMap<>();
         plays.put("hamlet", Play.create("Hamlet", "tragedy"));
         plays.put("as-like", Play.create("As You Like It", "comedy"));
@@ -52,5 +50,11 @@ public class Main {
         result += "You earned " + volumeCredits + " credits\n";
         System.out.println(result);
     }
+}
 
+public class Main {
+
+    public static void main(String[] args) {
+        new App().run();
+    }
 }
