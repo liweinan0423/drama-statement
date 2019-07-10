@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         Map<String, Play> plays = new HashMap<>();
-        plays.put("hamlet", new Play("Hamlet", "tragedy"));
-        plays.put("as-like", new Play("As You Like It", "comedy"));
-        plays.put("othello", new Play("Othello", "tragedy"));
+        plays.put("hamlet", Play.create("Hamlet", "tragedy"));
+        plays.put("as-like", Play.create("As You Like It", "comedy"));
+        plays.put("othello", Play.create("Othello", "tragedy"));
 
         String customer = "RigCo";
 
