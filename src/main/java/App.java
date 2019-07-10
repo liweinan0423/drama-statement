@@ -8,6 +8,8 @@ class App {
         plays.put("as-like", Play.create("As You Like It", "comedy"));
         plays.put("othello", Play.create("Othello", "tragedy"));
 
+        Statement statement = new Statement();
+        statement.customer = "RigCo";
         String customer = "RigCo";
 
         Performance[] performances = new Performance[]{
@@ -15,11 +17,12 @@ class App {
                 new Performance("as-like", 35),
                 new Performance("othello", 40)
         };
+        statement.performances = performances;
 
         int totalAmount = 0;
         int volumeCredits = 0;
-        String result = "Statement for " + customer + "\n";
-        for (Performance performance : performances) {
+        String result = "Statement for " + statement.customer + "\n";
+        for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
 
             int thisAmount = 0;
