@@ -20,6 +20,8 @@ class App {
         int totalAmount = 0;
         int volumeCredits = 0;
         String result = "Statement for " + statement.customer + "\n";
+        StringBuilder resultBuilder = new StringBuilder();
+        resultBuilder.append("Statement for " + statement.customer + "\n");
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
 
