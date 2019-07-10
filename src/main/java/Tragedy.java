@@ -5,6 +5,11 @@ public class Tragedy extends Play {
     }
 
     public Tragedy(String name) {
-        super(name) ;
+        super(name);
+    }
+
+    @Override
+    public int getAmount(Performance performance) {
+        return performance.getTragedyAmount();
     }
 }
