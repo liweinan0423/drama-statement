@@ -23,7 +23,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             int thisAmount = 0;
-            thisAmount = play.getAmount(performance, play);
+            thisAmount = play.getAmount(performance);
             // add volume credits
             volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
 
