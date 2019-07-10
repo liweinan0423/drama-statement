@@ -20,7 +20,7 @@ class App {
         int totalAmount = 0;
         int volumeCredits = 0;
         StringBuilder resultBuilder = new StringBuilder();
-        resultBuilder.append("Statement for ").append(statement.customer).append("\n");
+        makeHead(statement, resultBuilder);
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
 
@@ -42,5 +42,9 @@ class App {
         resultBuilder.append("Amount owed is $").append(totalAmount).append("\n");
         resultBuilder.append("You earned ").append(volumeCredits).append(" credits\n");
         return resultBuilder.toString();
+    }
+
+    private void makeHead(Statement statement, StringBuilder resultBuilder) {
+        resultBuilder.append("Statement for ").append(statement.customer).append("\n");
     }
 }
