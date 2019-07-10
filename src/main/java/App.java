@@ -42,7 +42,9 @@ class App {
         }
 
         result += "Amount owed is $" + totalAmount + "\n";
+        resultBuilder.append("Amount owed is $" + totalAmount + "\n");
         result += "You earned " + volumeCredits + " credits\n";
+        resultBuilder.append("You earned " + volumeCredits + " credits\n");
         return result;
     }
 }
