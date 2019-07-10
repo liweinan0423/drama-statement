@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class App {
-    public void run() {
+    public String run() {
         Map<String, Play> plays = new HashMap<>();
         plays.put("hamlet", Play.create("Hamlet", "tragedy"));
         plays.put("as-like", Play.create("As You Like It", "comedy"));
@@ -39,6 +39,6 @@ class App {
 
         result += "Amount owed is $" + totalAmount + "\n";
         result += "You earned " + volumeCredits + " credits\n";
-        System.out.println(result);
+        return result;
     }
 }
