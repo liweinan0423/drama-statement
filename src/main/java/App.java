@@ -45,6 +45,6 @@ class App {
         resultBuilder.append("Amount owed is $" + totalAmount + "\n");
         result += "You earned " + volumeCredits + " credits\n";
         resultBuilder.append("You earned " + volumeCredits + " credits\n");
-        return result;
+        return resultBuilder.toString();
     }
 }
