@@ -23,16 +23,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             int thisAmount = 0;
-            switch (play.getType()) {
-                case "tragedy":
-                    thisAmount = performance.getTragedyAmount();
-                    break;
-                case "comedy":
-                    thisAmount = performance.getComedyAmount();
-                    break;
-                default:
-                    throw new RuntimeException("unknown type " + play.getType());
-            }
+            thisAmount = getAmount(performance, play);
             // add volume credits
             volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
 
@@ -49,6 +40,21 @@ class App {
         result += "Amount owed is $" + totalAmount + "\n";
         result += "You earned " + volumeCredits + " credits\n";
         System.out.println(result);
+    }
+
+    private int getAmount(Performance performance, Play play) {
+        int thisAmount;
+        switch (play.getType()) {
+            case "tragedy":
+                thisAmount = performance.getTragedyAmount();
+                break;
+            case "comedy":
+                thisAmount = performance.getComedyAmount();
+                break;
+            default:
+                throw new RuntimeException("unknown type " + play.getType());
+        }
+        return thisAmount;
     }
 }
 
