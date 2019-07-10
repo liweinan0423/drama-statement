@@ -1,5 +1,10 @@
 class Play {
     static Play create(String name, String type) {
+        if ("tragedy".equals(type)) {
+            return new Tragedy(name);
+        } else if ("comendy".equals(type)) {
+            return new Comedy(name);
+        }
         return new Play(name, type);
     }
     public static final int TRAGEDY_BASE_PRICE = 400;

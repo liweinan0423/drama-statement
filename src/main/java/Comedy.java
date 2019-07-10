@@ -1,5 +1,10 @@
 public class Comedy extends Play {
-    public Comedy(String name, String type) {
-        super(name, type);
+    @Override
+    public String getType() {
+        return "comedy";
+    }
+
+    public Comedy(String name) {
+        super(name, "comedy");
     }
 }
