@@ -26,14 +26,9 @@ abstract class Play {
         return name;
     }
 
-    public int getAmount(Performance performance, Play play) {
-        return this.getAmount(performance);
-    }
-
     public int getAmount(Performance performance) {
         int thisAmount;
-        Play play = this;
-        switch (play.getType()) {
+        switch (this.getType()) {
             case "tragedy":
                 thisAmount = performance.getTragedyAmount();
                 break;
@@ -41,7 +36,7 @@ abstract class Play {
                 thisAmount = performance.getComedyAmount();
                 break;
             default:
-                throw new RuntimeException("unknown type " + play.getType());
+                throw new RuntimeException("unknown type " + this.getType());
         }
         return thisAmount;
     }
