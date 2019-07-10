@@ -37,6 +37,7 @@ class App {
 
             // print line for this order
             result += " " + play.getName() + ": $" + thisAmount + " (" + performance.getAudiences() + " seats)\n";
+            resultBuilder.append(" " + play.getName() + ": $" + thisAmount + " (" + performance.getAudiences() + " seats)\n");
             totalAmount += thisAmount;
         }
 
