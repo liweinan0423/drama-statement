@@ -19,17 +19,6 @@ class Invoice {
 
     }
 
-    String print(Statement statement) {
-        StringBuilder resultBuilder = new StringBuilder();
-        resultBuilder.append("Statement for ").append(statement.customer).append("\n");
-        for (InvoiceItem item : invoiceItems) {
-            resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
-        }
-        resultBuilder.append("Amount owed is $").append(totalAmount).append("\n");
-        resultBuilder.append("You earned ").append(volumeCredits).append(" credits\n");
-        return resultBuilder.toString();
-    }
-
     String print() {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append("Statement for ").append(customer).append("\n");
