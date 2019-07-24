@@ -26,9 +26,14 @@ class App {
 
             volumeCredits += play.calculateVolumeCredits(performance);
             totalAmount += play.getAmount(performance);
+        }
+
+        for (Performance performance : statement.performances) {
+            Play play = plays.get(performance.getPlayId());
 
             resultBuilder.append(" ").append(play.getName()).append(": $").append(play.getAmount(performance)).append(" (").append(performance.getAudiences()).append(" seats)\n");
         }
+
 
         makeFoot(totalAmount, volumeCredits, resultBuilder);
         return resultBuilder.toString();
