@@ -22,12 +22,9 @@ class App {
                 new Performance("othello", 40)
         };
 
-        Invoice invoice = new Invoice();
-        invoice.totalAmount = 0;
-        invoice.volumeCredits = 0;
         StringBuilder resultBuilder = new StringBuilder();
         makeHead(statement, resultBuilder);
-        invoice = getInvoice(plays, statement);
+        Invoice invoice = getInvoice(plays, statement);
 
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
