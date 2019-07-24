@@ -27,12 +27,7 @@ class App {
         invoice.volumeCredits = 0;
         StringBuilder resultBuilder = new StringBuilder();
         makeHead(statement, resultBuilder);
-        for (Performance performance : statement.performances) {
-            Play play = plays.get(performance.getPlayId());
-
-            invoice.volumeCredits += play.calculateVolumeCredits(performance);
-            invoice.totalAmount += play.getAmount(performance);
-        }
+        calculateInvoice(plays, statement, invoice);
 
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
@@ -44,6 +39,22 @@ class App {
         makeFoot(invoice.totalAmount, invoice.volumeCredits, resultBuilder);
         return resultBuilder.toString();
     }
+
+    private void calculateInvoice(Map<String, Play> plays, Statement statement, Invoice invoice) {
+        for (Performance performance : statement.performances) {
+            Play play = plays.get(performance.getPlayId());
+
+            invoice.volumeCredits += play.calculateVolumeCredits(performance);
+            invoice.totalAmount += play.getAmount(performance);
+        }
+    }
+
+    private Invoice get(Map<String, Play> plays, Statement statement, Invoice invoice) {
+        Invoice invoice1 = new Invoice();
+        calculateInvoice(plays, statement, invoice1);
+        return invoice1;
+    }
+
 
 
     private void makeFoot(int totalAmount, int volumeCredits, StringBuilder resultBuilder) {
