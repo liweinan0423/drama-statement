@@ -24,13 +24,10 @@ class App {
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
 
-            // add volume credits
             volumeCredits += play.calculateVolumeCredits(performance);
-
-
-            // print line for this order
-            resultBuilder.append(" ").append(play.getName()).append(": $").append(play.getAmount(performance)).append(" (").append(performance.getAudiences()).append(" seats)\n");
             totalAmount += play.getAmount(performance);
+
+            resultBuilder.append(" ").append(play.getName()).append(": $").append(play.getAmount(performance)).append(" (").append(performance.getAudiences()).append(" seats)\n");
         }
 
         makeFoot(totalAmount, volumeCredits, resultBuilder);
