@@ -14,7 +14,7 @@ public class Statement {
             volumeCredits += play.calculateVolumeCredits(performance);
             totalAmount += play.getAmount(performance);
 
-            invoice.addItem(performance, play);
+            invoice.addItem(play.getAmount(performance), performance.getAudiences(), play.getName());
         }
 
         invoice.volumeCredits = volumeCredits;
