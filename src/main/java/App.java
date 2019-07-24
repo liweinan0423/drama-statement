@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class Invoice {
     int totalAmount;
@@ -23,22 +21,23 @@ class Invoice {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append("Statement for ").append(customer).append("\n");
         for (InvoiceItem item : invoiceItems) {
-            printItem(resultBuilder, item);
+            item.print(resultBuilder);
         }
         resultBuilder.append("Amount owed is $").append(totalAmount).append("\n");
         resultBuilder.append("You earned ").append(volumeCredits).append(" credits\n");
         return resultBuilder.toString();
     }
 
-    private void printItem(StringBuilder resultBuilder, InvoiceItem item) {
-        resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
-    }
 }
 
 class InvoiceItem {
     String playName;
     int audiences;
     int amount;
+
+    void print(StringBuilder resultBuilder) {
+        resultBuilder.append(" ").append(playName).append(": $").append(amount).append(" (").append(audiences).append(" seats)\n");
+    }
 }
 
 class App {
