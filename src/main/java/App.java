@@ -47,9 +47,9 @@ class App {
     }
 
     private Invoice getInvoice(Map<String, Play> plays, Statement statement) {
-        Invoice invoice1 = new Invoice();
-        calculateInvoice(plays, statement, invoice1);
-        return invoice1;
+        Invoice invoice = new Invoice();
+        calculateInvoice(plays, statement, invoice);
+        return invoice;
     }
 
 
