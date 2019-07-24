@@ -12,6 +12,11 @@ public class Statement {
             invoice.totalAmount += play.getAmount(performance);
 
             invoice.items.put(performance, play.getAmount(performance));
+            InvoiceItem invoiceItem = new InvoiceItem();
+            invoiceItem.amount = play.getAmount(performance);
+            invoiceItem.playName = play.getName();
+            invoiceItem.audiences = performance.getAudiences();
+            invoice.invoiceItems.add(invoiceItem);
         }
         return invoice;
     }

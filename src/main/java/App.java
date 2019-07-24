@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 class Invoice {
@@ -6,6 +8,13 @@ class Invoice {
     int volumeCredits;
 
     Map<Performance, Integer> items = new HashMap<>();
+    List<InvoiceItem> invoiceItems = new ArrayList<>();
+}
+
+class InvoiceItem {
+    String playName;
+    int audiences;
+    int amount;
 }
 
 class App {
