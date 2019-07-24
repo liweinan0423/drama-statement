@@ -19,6 +19,10 @@ class Invoice {
 
     }
 
+    String print(Statement statement) {
+        return print();
+    }
+
     String print() {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append("Statement for ").append(customer).append("\n");
@@ -56,7 +60,7 @@ class App {
         Invoice invoice = statement.getInvoice(plays);
         invoice.customer = statement.customer;
 
-        return invoice.print();
+        return invoice.print(statement);
     }
 
 
