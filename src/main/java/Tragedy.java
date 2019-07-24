@@ -10,7 +10,12 @@ public class Tragedy extends Play {
 
     @Override
     public int getAmount(Performance performance) {
-        return performance.getTragedyAmount();
+        int thisAmount;
+        thisAmount = TRAGEDY_BASE_PRICE;
+        if (performance.getAudiences() > Performance.TRAGEDY_MAX_PEOPLE) {
+            thisAmount += TRAGEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.TRAGEDY_MAX_PEOPLE);
+        }
+        return thisAmount;
     }
 
     int calculateVolumeCredits(Performance performance) {

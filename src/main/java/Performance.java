@@ -17,26 +17,6 @@ class Performance {
     }
 
 
-    public int getTragedyAmount() {
-        int thisAmount;
-        thisAmount = Play.TRAGEDY_BASE_PRICE;
-        if (this.getAudiences() > TRAGEDY_MAX_PEOPLE) {
-            thisAmount += Play.TRAGEDY_EXTRA_PRICE * (this.getAudiences() - TRAGEDY_MAX_PEOPLE);
-        }
-        return thisAmount;
-    }
-
-    public int getComedyAmount() {
-        int thisAmount;
-        thisAmount = Play.COMEDY_BASE_PRICE;
-        if (this.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
-            thisAmount += Play.COMEDY_EXTRA_BASE + Play.COMEDY_EXTRA_PRICE * (this.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
-        }
-        thisAmount += Play.COMEDY_EXTRA_FACTOR * this.getAudiences();
-        return thisAmount;
-
-    }
-
     public Play getPlay() {
         return play;
     }

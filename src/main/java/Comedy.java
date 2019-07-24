@@ -6,7 +6,14 @@ public class Comedy extends Play {
 
     @Override
     public int getAmount(Performance performance) {
-        return performance.getComedyAmount();
+        int thisAmount;
+        thisAmount = COMEDY_BASE_PRICE;
+        if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
+            thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
+        }
+        thisAmount += COMEDY_EXTRA_FACTOR * performance.getAudiences();
+        return thisAmount;
+
     }
 
     public Comedy(String name) {
