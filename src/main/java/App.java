@@ -6,6 +6,7 @@ import java.util.Map;
 class Invoice {
     int totalAmount;
     int volumeCredits;
+    String customer;
 
     List<InvoiceItem> invoiceItems = new ArrayList<>();
 
@@ -53,6 +54,7 @@ class App {
         };
 
         Invoice invoice = statement.getInvoice(plays);
+        invoice.customer = statement.customer;
 
         return invoice.print(statement);
     }
