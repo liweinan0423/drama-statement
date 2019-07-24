@@ -4,7 +4,7 @@ public class Statement {
     public Performance[] performances;
     public String customer;
 
-    Invoice getInvoice(Map<String, Play> plays) {
+    Invoice getInvoice() {
         Invoice invoice = new Invoice();
         int volumeCredits = 0;
         int totalAmount = 0;

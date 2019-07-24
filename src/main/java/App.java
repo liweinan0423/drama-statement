@@ -39,13 +39,9 @@ class InvoiceItem {
 
 class App {
     public String run() {
-        Map<String, Play> plays = new HashMap<>();
         Play hamlet = Play.create("Hamlet", "tragedy");
-        plays.put("hamlet", hamlet);
         Play asLike = Play.create("As You Like It", "comedy");
-        plays.put("as-like", asLike);
         Play othello = Play.create("Othello", "tragedy");
-        plays.put("othello", othello);
 
         Statement statement = new Statement();
         statement.customer = "RigCo";
@@ -56,7 +52,7 @@ class App {
                 new Performance("othello", 40, othello)
         };
 
-        Invoice invoice = statement.getInvoice(plays);
+        Invoice invoice = statement.getInvoice();
         invoice.customer = statement.customer;
 
         return invoice.print();
