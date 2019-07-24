@@ -8,9 +8,10 @@ public class Statement {
         Invoice invoice = new Invoice();
         for (Performance performance : performances) {
             Play play = plays.get(performance.getPlayId());
-
             invoice.volumeCredits += play.calculateVolumeCredits(performance);
             invoice.totalAmount += play.getAmount(performance);
+
+            invoice.items.put(performance, play.getAmount(performance));
         }
         return invoice;
     }

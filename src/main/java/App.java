@@ -4,6 +4,8 @@ import java.util.Map;
 class Invoice {
     int totalAmount;
     int volumeCredits;
+
+    Map<Performance, Integer> items = new HashMap<>();
 }
 
 class App {
