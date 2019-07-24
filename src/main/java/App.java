@@ -25,7 +25,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             // add volume credits
-            volumeCredits += calculateVolumeCredits(performance, play, 0);
+            volumeCredits += calculateVolumeCredits(performance, play);
 
 
             // print line for this order
@@ -45,6 +45,11 @@ class App {
             volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
         return volumeCredits;
     }
+
+    private int calculateVolumeCredits(Performance performance, Play play) {
+        return calculateVolumeCredits(performance, play, 0);
+    }
+
 
     private void makeFoot(int totalAmount, int volumeCredits, StringBuilder resultBuilder) {
         resultBuilder.append("Amount owed is $").append(totalAmount).append("\n");
