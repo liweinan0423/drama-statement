@@ -52,9 +52,9 @@ class App {
         statement.customer = "RigCo";
 
         statement.performances = new Performance[]{
-                new Performance("hamlet", 55, hamlet),
-                new Performance("as-like", 35, asLike),
-                new Performance("othello", 40, othello)
+                new Performance(55, hamlet),
+                new Performance(35, asLike),
+                new Performance(40, othello)
         };
 
         Invoice invoice = statement.getInvoice();
