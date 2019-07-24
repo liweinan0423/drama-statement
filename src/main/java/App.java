@@ -27,7 +27,7 @@ class App {
         invoice.volumeCredits = 0;
         StringBuilder resultBuilder = new StringBuilder();
         makeHead(statement, resultBuilder);
-        calculateInvoice(plays, statement, invoice);
+        invoice = getInvoice(plays, statement);
 
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
@@ -49,7 +49,7 @@ class App {
         }
     }
 
-    private Invoice get(Map<String, Play> plays, Statement statement, Invoice invoice) {
+    private Invoice getInvoice(Map<String, Play> plays, Statement statement) {
         Invoice invoice1 = new Invoice();
         calculateInvoice(plays, statement, invoice1);
         return invoice1;
