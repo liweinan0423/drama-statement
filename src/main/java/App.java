@@ -37,10 +37,8 @@ class App {
         makeHead(statement, resultBuilder);
         Invoice invoice = statement.getInvoice(plays);
 
-        for (Performance performance : statement.performances) {
-            Play play = plays.get(performance.getPlayId());
-
-            resultBuilder.append(" ").append(play.getName()).append(": $").append(invoice.items.get(performance)).append(" (").append(performance.getAudiences()).append(" seats)\n");
+        for (InvoiceItem item : invoice.invoiceItems) {
+            resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
         }
 
 
