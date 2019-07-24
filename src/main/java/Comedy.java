@@ -15,8 +15,7 @@ public class Comedy extends Play {
 
     int calculateVolumeCredits(Performance performance) {
         int volumeCredits = 0;
-        volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
-        volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
+        volumeCredits = (int) (Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0) + Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR));
         return volumeCredits;
     }
 }
