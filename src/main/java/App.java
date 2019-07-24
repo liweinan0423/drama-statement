@@ -31,7 +31,7 @@ class App {
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
 
-            resultBuilder.append(" ").append(play.getName()).append(": $").append(play.getAmount(performance)).append(" (").append(performance.getAudiences()).append(" seats)\n");
+            resultBuilder.append(" ").append(play.getName()).append(": $").append(invoice.items.get(performance)).append(" (").append(performance.getAudiences()).append(" seats)\n");
         }
 
 
