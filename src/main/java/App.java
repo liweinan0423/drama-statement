@@ -23,11 +23,15 @@ class Invoice {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append("Statement for ").append(customer).append("\n");
         for (InvoiceItem item : invoiceItems) {
-            resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
+            printItem(resultBuilder, item);
         }
         resultBuilder.append("Amount owed is $").append(totalAmount).append("\n");
         resultBuilder.append("You earned ").append(volumeCredits).append(" credits\n");
         return resultBuilder.toString();
+    }
+
+    private void printItem(StringBuilder resultBuilder, InvoiceItem item) {
+        resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
     }
 }
 
