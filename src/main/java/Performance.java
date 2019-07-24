@@ -46,4 +46,8 @@ class Performance {
         return thisAmount;
 
     }
+
+    public Play getPlay() {
+        return play;
+    }
 }

@@ -10,7 +10,7 @@ public class Statement {
         int totalAmount = 0;
 
         for (Performance performance : performances) {
-            Play play = plays.get(performance.getPlayId());
+            Play play = performance.getPlay();
             volumeCredits += play.calculateVolumeCredits(performance);
             totalAmount += play.getAmount(performance);
 
