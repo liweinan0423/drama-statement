@@ -25,7 +25,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             // add volume credits
-            volumeCredits += calculateVolumeCredits(performance, play);
+            volumeCredits += play.calculateVolumeCredits(performance);
 
 
             // print line for this order
@@ -35,16 +35,6 @@ class App {
 
         makeFoot(totalAmount, volumeCredits, resultBuilder);
         return resultBuilder.toString();
-    }
-
-    private int calculateVolumeCredits(Performance performance, Play play) {
-        int volumeCredits = 0;
-        volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
-
-        // add extra credit for every 5 comedy attendees;
-        if ("comedy" == play.getType())
-            volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
-        return volumeCredits;
     }
 
 
