@@ -40,17 +40,20 @@ class InvoiceItem {
 class App {
     public String run() {
         Map<String, Play> plays = new HashMap<>();
-        plays.put("hamlet", Play.create("Hamlet", "tragedy"));
-        plays.put("as-like", Play.create("As You Like It", "comedy"));
-        plays.put("othello", Play.create("Othello", "tragedy"));
+        Play hamlet = Play.create("Hamlet", "tragedy");
+        plays.put("hamlet", hamlet);
+        Play asLike = Play.create("As You Like It", "comedy");
+        plays.put("as-like", asLike);
+        Play othello = Play.create("Othello", "tragedy");
+        plays.put("othello", othello);
 
         Statement statement = new Statement();
         statement.customer = "RigCo";
 
         statement.performances = new Performance[]{
-                new Performance("hamlet", 55),
-                new Performance("as-like", 35),
-                new Performance("othello", 40)
+                new Performance("hamlet", 55, hamlet),
+                new Performance("as-like", 35, asLike),
+                new Performance("othello", 40, othello)
         };
 
         Invoice invoice = statement.getInvoice(plays);
