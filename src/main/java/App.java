@@ -7,7 +7,6 @@ class Invoice {
     int totalAmount;
     int volumeCredits;
 
-    Map<Performance, Integer> items = new HashMap<>();
     List<InvoiceItem> invoiceItems = new ArrayList<>();
 }
 
