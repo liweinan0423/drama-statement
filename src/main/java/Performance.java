@@ -7,7 +7,7 @@ class Performance {
     private int audiences;
     private Play play;
 
-    public Performance(int audiences, Play play) {
+    public Performance(Play play, int audiences) {
         this.audiences = audiences;
         this.play = play;
     }
