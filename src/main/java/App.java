@@ -41,9 +41,10 @@ class App {
                 new Performance("othello", 40)
         };
 
+        Invoice invoice = statement.getInvoice(plays);
+
         StringBuilder resultBuilder = new StringBuilder();
         makeHead(statement, resultBuilder);
-        Invoice invoice = statement.getInvoice(plays);
 
         for (InvoiceItem item : invoice.invoiceItems) {
             resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
