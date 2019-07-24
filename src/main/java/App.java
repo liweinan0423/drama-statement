@@ -37,17 +37,14 @@ class App {
         return resultBuilder.toString();
     }
 
-    private int calculateVolumeCredits(Performance performance, Play play, int volumeCredits) {
+    private int calculateVolumeCredits(Performance performance, Play play) {
+        int volumeCredits = 0;
         volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
 
         // add extra credit for every 5 comedy attendees;
         if ("comedy" == play.getType())
             volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
         return volumeCredits;
-    }
-
-    private int calculateVolumeCredits(Performance performance, Play play) {
-        return calculateVolumeCredits(performance, play, 0);
     }
 
 
