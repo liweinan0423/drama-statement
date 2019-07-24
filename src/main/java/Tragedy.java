@@ -15,11 +15,7 @@ public class Tragedy extends Play {
 
     int calculateVolumeCredits(Performance performance) {
         int volumeCredits = 0;
-        volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
-
-        // add extra credit for every 5 comedy attendees;
-        if ("comedy" == getType())
-            volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
+        volumeCredits = Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
         return volumeCredits;
     }
 }
