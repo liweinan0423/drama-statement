@@ -6,10 +6,16 @@ class Performance {
     public static final int EXTRA_CREDIT_FACTOR = 5;
     private String playId;
     private int audiences;
+    private Play play;
 
     public Performance(String playId, int audiences) {
+        this(playId, audiences, null);
+    }
+
+    public Performance(String playId, int audiences, Play play) {
         this.playId = playId;
         this.audiences = audiences;
+        this.play = play;
     }
 
     public String getPlayId() {
