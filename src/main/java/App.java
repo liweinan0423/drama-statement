@@ -25,7 +25,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             // add volume credits
-            volumeCredits = calculateVolumeCredits(performance, play, volumeCredits);
+            volumeCredits += calculateVolumeCredits(performance, play, 0);
 
 
             // print line for this order
