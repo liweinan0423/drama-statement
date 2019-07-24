@@ -39,9 +39,13 @@ class App {
             totalAmount += thisAmount;
         }
 
+        makeFoot(totalAmount, volumeCredits, resultBuilder);
+        return resultBuilder.toString();
+    }
+
+    private void makeFoot(int totalAmount, int volumeCredits, StringBuilder resultBuilder) {
         resultBuilder.append("Amount owed is $").append(totalAmount).append("\n");
         resultBuilder.append("You earned ").append(volumeCredits).append(" credits\n");
-        return resultBuilder.toString();
     }
 
     private void makeHead(Statement statement, StringBuilder resultBuilder) {
