@@ -1,6 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
+class Invoice {
+    int totalAmount;
+    int volumeCredits;
+}
+
 class App {
     public String run() {
         Map<String, Play> plays = new HashMap<>();
@@ -17,15 +22,16 @@ class App {
                 new Performance("othello", 40)
         };
 
-        int totalAmount = 0;
-        int volumeCredits = 0;
+        Invoice invoice = new Invoice();
+        invoice.totalAmount = 0;
+        invoice.volumeCredits = 0;
         StringBuilder resultBuilder = new StringBuilder();
         makeHead(statement, resultBuilder);
         for (Performance performance : statement.performances) {
             Play play = plays.get(performance.getPlayId());
 
-            volumeCredits += play.calculateVolumeCredits(performance);
-            totalAmount += play.getAmount(performance);
+            invoice.volumeCredits += play.calculateVolumeCredits(performance);
+            invoice.totalAmount += play.getAmount(performance);
         }
 
         for (Performance performance : statement.performances) {
@@ -35,7 +41,7 @@ class App {
         }
 
 
-        makeFoot(totalAmount, volumeCredits, resultBuilder);
+        makeFoot(invoice.totalAmount, invoice.volumeCredits, resultBuilder);
         return resultBuilder.toString();
     }
 
