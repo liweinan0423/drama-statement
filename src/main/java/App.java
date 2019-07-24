@@ -25,11 +25,7 @@ class App {
             Play play = plays.get(performance.getPlayId());
 
             // add volume credits
-            volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
-
-            // add extra credit for every 5 comedy attendees;
-            if ("comedy" == play.getType())
-                volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
+            volumeCredits = calculateVolumeCredits(volumeCredits, performance, play);
 
 
             // print line for this order
@@ -39,6 +35,15 @@ class App {
 
         makeFoot(totalAmount, volumeCredits, resultBuilder);
         return resultBuilder.toString();
+    }
+
+    private int calculateVolumeCredits(int volumeCredits, Performance performance, Play play) {
+        volumeCredits += Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0);
+
+        // add extra credit for every 5 comedy attendees;
+        if ("comedy" == play.getType())
+            volumeCredits += Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR);
+        return volumeCredits;
     }
 
     private void makeFoot(int totalAmount, int volumeCredits, StringBuilder resultBuilder) {
