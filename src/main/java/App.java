@@ -67,7 +67,7 @@ class App {
         Invoice invoice = statement.getInvoice(plays);
         invoice.customer = statement.customer;
 
-        return invoice.print(statement);
+        return invoice.print();
     }
 
 
