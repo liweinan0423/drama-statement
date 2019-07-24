@@ -10,11 +10,16 @@ class Invoice {
     List<InvoiceItem> invoiceItems = new ArrayList<>();
 
     void addItem(Performance performance, Play play) {
+        addItem(performance, play.getAmount(performance), performance.getAudiences(), play.getName());
+    }
+
+    void addItem(Performance performance, int amount, int audiences, String playName) {
         InvoiceItem invoiceItem = new InvoiceItem();
-        invoiceItem.amount = play.getAmount(performance);
-        invoiceItem.playName = play.getName();
-        invoiceItem.audiences = performance.getAudiences();
+        invoiceItem.amount = amount;
+        invoiceItem.playName = playName;
+        invoiceItem.audiences = audiences;
         invoiceItems.add(invoiceItem);
+
     }
 }
 
