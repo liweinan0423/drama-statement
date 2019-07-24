@@ -45,14 +45,15 @@ class App {
 
         StringBuilder resultBuilder = new StringBuilder();
         makeHead(statement, resultBuilder);
+        makeLines(invoice, resultBuilder);
+        makeFoot(invoice.totalAmount, invoice.volumeCredits, resultBuilder);
+        return resultBuilder.toString();
+    }
 
+    private void makeLines(Invoice invoice, StringBuilder resultBuilder) {
         for (InvoiceItem item : invoice.invoiceItems) {
             resultBuilder.append(" ").append(item.playName).append(": $").append(item.amount).append(" (").append(item.audiences).append(" seats)\n");
         }
-
-
-        makeFoot(invoice.totalAmount, invoice.volumeCredits, resultBuilder);
-        return resultBuilder.toString();
     }
 
 
