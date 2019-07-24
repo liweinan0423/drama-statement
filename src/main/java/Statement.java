@@ -14,15 +14,12 @@ public class Statement {
             volumeCredits += play.calculateVolumeCredits(performance);
             totalAmount += play.getAmount(performance);
 
-            InvoiceItem invoiceItem = new InvoiceItem();
-            invoiceItem.amount = play.getAmount(performance);
-            invoiceItem.playName = play.getName();
-            invoiceItem.audiences = performance.getAudiences();
-            invoice.invoiceItems.add(invoiceItem);
+            invoice.addItem(performance, play);
         }
 
         invoice.volumeCredits = volumeCredits;
         invoice.totalAmount = totalAmount;
         return invoice;
     }
+
 }

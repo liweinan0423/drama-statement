@@ -8,6 +8,14 @@ class Invoice {
     int volumeCredits;
 
     List<InvoiceItem> invoiceItems = new ArrayList<>();
+
+    void addItem(Performance performance, Play play) {
+        InvoiceItem invoiceItem = new InvoiceItem();
+        invoiceItem.amount = play.getAmount(performance);
+        invoiceItem.playName = play.getName();
+        invoiceItem.audiences = performance.getAudiences();
+        invoiceItems.add(invoiceItem);
+    }
 }
 
 class InvoiceItem {
