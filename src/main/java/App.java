@@ -19,10 +19,6 @@ class Invoice {
 
     }
 
-    String print(Statement statement) {
-        return print();
-    }
-
     String print() {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append("Statement for ").append(customer).append("\n");
