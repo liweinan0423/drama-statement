@@ -8,8 +8,8 @@ public class Comedy extends Play {
     public int getAmount(Performance performance) {
         int thisAmount;
         thisAmount = COMEDY_BASE_PRICE;
-        if (performance.getAudiences() > Performance.COMEDY_MAX_PEOPLE) {
-            thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (performance.getAudiences() - Performance.COMEDY_MAX_PEOPLE);
+        if (performance.getAudiences() > Play.COMEDY_MAX_PEOPLE) {
+            thisAmount += COMEDY_EXTRA_BASE + COMEDY_EXTRA_PRICE * (performance.getAudiences() - Play.COMEDY_MAX_PEOPLE);
         }
         thisAmount += COMEDY_EXTRA_FACTOR * performance.getAudiences();
         return thisAmount;
@@ -21,6 +21,6 @@ public class Comedy extends Play {
     }
 
     int calculateVolumeCredits(Performance performance) {
-        return (int) (Math.max(performance.getAudiences() - Performance.VOLUME_CREDITS_THRESHOLD, 0) + Math.floor(performance.getAudiences() / Performance.EXTRA_CREDIT_FACTOR));
+        return (int) (Math.max(performance.getAudiences() - Play.VOLUME_CREDITS_THRESHOLD, 0) + Math.floor(performance.getAudiences() / Play.EXTRA_CREDIT_FACTOR));
     }
 }
